@@ -1,0 +1,73 @@
+{
+  "source": "Galeriu et al. 2013 - An overview of organically bound tritium experiments in plants following a short atmospheric HTO exposure",
+  "journal": "Fusion Science and Technology, 64(3), 429-434",
+  "note": "Table 4 数据从 docx 原文提取，与 md 转换版有重大差异",
+  
+  "table1_field_experiments": {
+    "description": "1h exposure, winter wheat, field conditions (Strack, personal communication 2010)",
+    "note": "条件数据来自 md（docx OCR 列头损坏），实验名/起始时间/温度/RH/PPFD/DAA",
+    "experiments": [
+      {"name": "f3",  "year": 1995, "startH": 7,  "T": 18, "RH": 0.76, "PPFD": 160,  "DAA": 18},
+      {"name": "f14", "year": 1996, "startH": 7,  "T": 11, "RH": 0.93, "PPFD": 179,  "DAA": 22},
+      {"name": "f7",  "year": 1995, "startH": 8,  "T": 26, "RH": 0.76, "PPFD": 370,  "DAA": 24},
+      {"name": "f2",  "year": 1995, "startH": 9,  "T": 28, "RH": 0.76, "PPFD": 644,  "DAA": 17},
+      {"name": "f4",  "year": 1995, "startH": 10, "T": 29, "RH": 0.63, "PPFD": 1230, "DAA": 18},
+      {"name": "f10", "year": 1996, "startH": 11, "T": 26, "RH": 0.75, "PPFD": 1160, "DAA": 14},
+      {"name": "f15", "year": 1996, "startH": 11, "T": 32, "RH": 0.63, "PPFD": 1830, "DAA": 28},
+      {"name": "f1",  "year": 1995, "startH": 14, "T": 33, "RH": 0.70, "PPFD": 1180, "DAA": 15},
+      {"name": "f9",  "year": 1996, "startH": 15, "T": 36, "RH": 0.70, "PPFD": 1375, "DAA": 12},
+      {"name": "f13", "year": 1996, "startH": 15, "T": 29, "RH": 0.72, "PPFD": 1170, "DAA": 21},
+      {"name": "f5",  "year": 1995, "startH": 20, "T": 24, "RH": 0.84, "PPFD": 54,   "DAA": 22},
+      {"name": "f11", "year": 1996, "startH": 20, "T": 15, "RH": 0.89, "PPFD": 86,   "DAA": 20},
+      {"name": "f6",  "year": 1995, "startH": 23, "T": 17, "RH": 0.89, "PPFD": 0,    "DAA": 22},
+      {"name": "f12", "year": 1996, "startH": 23, "T": 12, "RH": 0.93, "PPFD": 0,    "DAA": 20}
+    ],
+    "field_TLI": {
+      "1h_daytime_avg": 0.0025,
+      "note": "文献报告 1h 暴露白天平均 TLI=0.25% (0.23% for linear grain filling period)"
+    }
+  },
+
+  "table4_chamber_wheat": {
+    "description": "2h chamber exposure, spring wheat, Diabate S & Strack S (personal communication 1998)",
+    "units": {"OBT": "Bq/mL combustion water", "HTO": "Bq/mL tissue water"},
+    "columns": ["W6b", "W7b", "W6a", "W7a", "WN2b", "W8b", "WN2a", "W8a", "W9b", "W9a"],
+    "night_flags": {"WN2b": true, "WN2a": true},
+    "DAF": [1, 6, 7, 12, 13, 15, 19, 21, 27, 33],
+    "obt": {
+      "ear_1day":    [831, 478.6, 568, 787, null, 822, 427, 384, null, null],
+      "ear_harvest": [81.2, 113.7, 151, 381, 222, 523, 357, 481, 394, 296],
+      "grain_harvest": [51, 229, 179, 483, 474, 657, 447, 610, 543, 362]
+    },
+    "hto": {
+      "leaf_2h":   [81899, 89379, 94254, 86642, 72911, 106130, 67441, 93513, 98587, 96886],
+      "leaf_gt1h": [null, 64347, null, 66938, 59431, null, 71115, null, 91702, 80361],
+      "leaf_gt2h": [49727, null, 50433, 52124, null, 45824, 56562, 50115, 73764, 74301],
+      "leaf_1day": [2934, 4720, 3903, 4677, null, 6329, 6051, 6383, 4675, null]
+    },
+    "tli_grain_pct": [0.062, 0.256, 0.190, 0.556, 0.649, 0.619, 0.663, 0.654, 0.550, 0.374],
+    "tli_note": "TLI = grain_harvest / leaf_2h × 100. 文献报告 TLI 白天 ~0.25%, 夜间相近"
+  },
+
+  "table5_biological_halftimes": {
+    "description": "Biological half times of HTO in wheat leaves after 1h field exposure (min)",
+    "note": "白天 28-58 min, 夜间 195-530 min (stomatal 关闭)",
+    "day_range_min": [28, 29, 30, 31, 31, 33, 52, 55, 58],
+    "night_range_min": [195, 210, 490, 510, 520, 530]
+  },
+
+  "table6_rice_tli": {
+    "description": "Rice TLI by days after flowering (4h D2O exposure, Atarashi-Andoh 2005)",
+    "DAF": [6, 14, 21, 26, 35],
+    "grain_TLI_pct": [0.39, 0.55, 0.43, 0.15, 0.045],
+    "stem_TLI_pct": [0.05, 0.03, 0.04, 0.03, 0.03],
+    "leaf_TLI_pct": [0.19, 0.14, 0.17, 0.18, 0.12]
+  },
+
+  "key_findings": {
+    "wheat_field_TLI_1h": "0.25% (daytime avg), range 0.06-0.65% in chamber 2h",
+    "night_day_ratio_initial_OBT": "~0.5 (leaves), ~0.25-0.59 (stems/ears)",
+    "night_day_ratio_TFWT": "~0.23 (leaves), ~0.25 (stems), ~0.59 (ears)",
+    "grain_TLI_time_dependence": "highest at 15-21 DAF (linear grain filling), drops at maturity"
+  }
+}

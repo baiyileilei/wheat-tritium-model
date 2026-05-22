@@ -1,0 +1,255 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-04-24",
+    "description": "小麦氚实验数据与模型参数——DS+豆包合并修正版",
+    "source_file": "小麦数据-合并修正版.md",
+    "correction_basis": "galeriu_2013_data.json (docx原文提取) + 豆包docx交叉验证",
+    "verified_by_model": true
+  },
+
+  "A1_Galeriu_2013": {
+    "citation": "Galeriu D, Melintescu A, Strack S, et al. An overview of organically bound tritium experiments in plants following a short atmospheric HTO exposure. J. Environ. Radioact. 118, 40–56, 2013.",
+    "type": "field_1h_exposure",
+    "crop": "winter_wheat",
+
+    "field_experiments": {
+      "description": "1h 田间暴露，冬季小麦，14组实验",
+      "note": "1996年实验(加粗)质量更好(CO₂维持自然水平)",
+      "experiments": [
+        {"name": "f3",  "year": 1995, "startH": 7,  "T": 18, "RH": 0.76, "PPFD": 160,  "DAA": 18},
+        {"name": "f14", "year": 1996, "startH": 7,  "T": 11, "RH": 0.93, "PPFD": 179,  "DAA": 22},
+        {"name": "f7",  "year": 1995, "startH": 8,  "T": 26, "RH": 0.76, "PPFD": 370,  "DAA": 24},
+        {"name": "f2",  "year": 1995, "startH": 9,  "T": 28, "RH": 0.76, "PPFD": 644,  "DAA": 17},
+        {"name": "f4",  "year": 1995, "startH": 10, "T": 29, "RH": 0.63, "PPFD": 1230, "DAA": 18},
+        {"name": "f10", "year": 1996, "startH": 11, "T": 26, "RH": 0.75, "PPFD": 1160, "DAA": 14},
+        {"name": "f15", "year": 1996, "startH": 11, "T": 32, "RH": 0.63, "PPFD": 1830, "DAA": 28},
+        {"name": "f1",  "year": 1995, "startH": 14, "T": 33, "RH": 0.70, "PPFD": 1180, "DAA": 15},
+        {"name": "f9",  "year": 1996, "startH": 15, "T": 36, "RH": 0.70, "PPFD": 1375, "DAA": 12},
+        {"name": "f13", "year": 1996, "startH": 15, "T": 29, "RH": 0.72, "PPFD": 1170, "DAA": 21},
+        {"name": "f5",  "year": 1995, "startH": 20, "T": 24, "RH": 0.84, "PPFD": 54,   "DAA": 22},
+        {"name": "f11", "year": 1996, "startH": 20, "T": 15, "RH": 0.89, "PPFD": 86,   "DAA": 20},
+        {"name": "f6",  "year": 1995, "startH": 23, "T": 17, "RH": 0.89, "PPFD": 0,    "DAA": 22},
+        {"name": "f12", "year": 1996, "startH": 23, "T": 12, "RH": 0.93, "PPFD": 0,    "DAA": 20}
+      ],
+      "field_TLI": {
+        "1h_daytime_avg_pct": 0.25,
+        "note": "文献报告 1h 暴露白天平均 TLI=0.25% (灌浆线性期 0.23%)"
+      }
+    },
+
+    "leaf_initial_HTO_relative": {
+      "description": "叶片初始 HTO 相对浓度 (% of atmospheric HTO)",
+      "daytime": {"mean_pct": 73, "sd_pct": 19, "n": ">=6"},
+      "night": {"mean_pct": 18, "sd_pct": 1, "n": ">=2"}
+    },
+
+    "biological_halftimes_min": {
+      "description": "TWT 生物半衰期（暴露后 1h 内）",
+      "leaf":   {"dawn": [40, 60], "day": [25, 49], "dusk": [230, 660], "night": [110, 170]},
+      "stem":   {"dawn": [45, 49], "day": [20, 26], "dusk": [130, 320], "night": [60, 190]},
+      "ear":    {"dawn": [79, 91], "day": [50, 126], "dusk": [210, 330], "night": [150, 920]},
+      "whole":  {"dawn": [50, 72], "day": [27, 60], "dusk": [220, 340], "night": [100, 250]}
+    },
+
+    "leaf_OBT_relative": {
+      "description": "叶片 OBT 相对浓度 (% of leaf TFWT at end of exposure)",
+      "at_exposure_end": {"day": {"mean": 1.25, "sd": 0.34}, "night": {"mean": 0.38, "sd": 0.05}},
+      "5_25h": {"day": [1.0, 1.8]},
+      "200_400h": {"day": "~0.4", "night": "~0.2"},
+      "400_800h": {"day": "~0.2", "night": "~0.1"}
+    },
+
+    "TLI_by_development_stage": {
+      "anthesis_to_grain_fill_start": [0.06, 0.2],
+      "linear_grain_fill": [0.4, 0.9],
+      "grain_fill_end_to_harvest": [0.04, 0.2],
+      "field_1h_avg": [0.20, 0.30],
+      "all_experiments_harvest_mean": {"value": 0.25, "sd": 0.07}
+    },
+
+    "OBT_grain_empirical_equation": "C_OBT_grain = 0.48 × [IC_leaf_day + 0.2×IC_leaf_night + 0.5×(IC_ear_day + 0.2×IC_ear_night)]",
+
+    "WOFOST_growth_params": {
+      "description": "WOFOST 冬小麦生长参数（德国中部）",
+      "note": "合并修正 2026-04-24，基于豆包 docx 完整数据",
+      "data": [
+        {"DAA": -2, "grain_kg_ha": 28,    "grain_rate": 28,   "plant_rate": 254.2, "partition": 0.1, "LAI": 6.91, "green_leaf": 0.326,  "MG": 0.28},
+        {"DAA": 0,  "grain_kg_ha": 309,   "grain_rate": 178,  "plant_rate": 261.2, "partition": 0.7, "LAI": 6.79, "green_leaf": 0.3203, "MG": 0.29},
+        {"DAA": 2,  "grain_kg_ha": 820,   "grain_rate": 255,  "plant_rate": 258,   "partition": 1.0, "LAI": 6.68, "green_leaf": 0.3152, "MG": 0.29},
+        {"DAA": 6,  "grain_kg_ha": 1828,  "grain_rate": 250,  "plant_rate": 251.4, "partition": 1.0, "LAI": 6.49, "green_leaf": 0.3063, "MG": 0.31},
+        {"DAA": 11, "grain_kg_ha": 3061,  "grain_rate": 244,  "plant_rate": 242.5, "partition": 1.0, "LAI": 6.3,  "green_leaf": 0.2971, "MG": 0.33},
+        {"DAA": 19, "grain_kg_ha": 4933,  "grain_rate": 222,  "plant_rate": 216.3, "partition": 1.0, "LAI": 6.06, "green_leaf": 0.2858, "MG": 0.36},
+        {"DAA": 21, "grain_kg_ha": 5360,  "grain_rate": 211,  "plant_rate": 205.8, "partition": 1.0, "LAI": 6.01, "green_leaf": 0.2836, "MG": 0.37},
+        {"DAA": 26, "grain_kg_ha": 6335,  "grain_rate": 183,  "plant_rate": 177.5, "partition": 1.0, "LAI": 5.37, "green_leaf": 0.2534, "MG": 0.41},
+        {"DAA": 33, "grain_kg_ha": 7407,  "grain_rate": 124,  "plant_rate": 113.9, "partition": 1.1, "LAI": 3.09, "green_leaf": 0.1456, "MG": 0.45},
+        {"DAA": 34, "grain_kg_ha": 7521,  "grain_rate": 114,  "plant_rate": 103.4, "partition": 1.1, "LAI": 2.86, "green_leaf": 0.135,  "MG": 0.47},
+        {"DAA": 37, "grain_kg_ha": 7799,  "grain_rate": 82,   "plant_rate": 70.2,  "partition": 1.2, "LAI": 2.25, "green_leaf": 0.1059, "MG": 0.52},
+        {"DAA": 44, "grain_kg_ha": 8012,  "grain_rate": 0,    "plant_rate": 0,     "partition": null, "LAI": 1.0,  "green_leaf": 0.047,  "MG": 0.92},
+        {"DAA": 56, "grain_kg_ha": 8012,  "grain_rate": 0,    "plant_rate": 0,     "partition": null, "LAI": 0.06, "green_leaf": 0.003,  "MG": 1.00}
+      ]
+    }
+  },
+
+  "A2_Diabate_1997": {
+    "citation": "Diabaté S, Strack S. Organically Bound Tritium in Wheat after Short-Term Exposure to Atmospheric Tritium under Laboratory Conditions. J. Environ. Radioact. 1997/1998.",
+    "type": "chamber_2h_exposure",
+    "crop": "spring_wheat_Star",
+    "description": "温室水培，2h急性暴露，花后1-33天(DAF)，暴露浓度~10⁵ Bq/mL",
+    "note": "用户已核验原文",
+
+    "chamber_experiments": {
+      "columns": ["W6b", "W7b", "W6a", "W7a", "WN2b", "W8b", "WN2a", "W8a", "W9b", "W9a"],
+      "night_flags": {"WN2b": true, "WN2a": true},
+      "DAF": [1, 6, 7, 12, 13, 15, 19, 21, 27, 33],
+
+      "OBT": {
+        "unit": "Bq/mL combustion water",
+        "ear_1day":    [831, 478.6, 568, 787, null, 822, 427, 384, null, null],
+        "ear_harvest": [81.2, 113.7, 151, 381, 222, 523, 357, 481, 394, 296],
+        "grain_harvest": [51, 229, 179, 483, 474, 657, 447, 610, 543, 362]
+      },
+
+      "HTO": {
+        "unit": "Bq/mL tissue water",
+        "leaf_2h":  [81899, 89379, 94254, 86642, 72911, 106130, 67441, 93513, 98587, 96886],
+        "leaf_gt1h": [null, 64347, null, 66938, 59431, null, 71115, null, 91702, 80361],
+        "leaf_gt2h": [49727, null, 50433, 52124, null, 45824, 56562, 50115, 73764, 74301],
+        "leaf_1day": [2934, 4720, 3903, 4677, null, 6329, 6051, 6383, 4675, null]
+      },
+
+      "TLI_grain_pct": [0.062, 0.256, 0.19, 0.556, 0.649, 0.619, 0.663, 0.654, 0.55, 0.374]
+    },
+
+    "key_findings": [
+      "开花早期(DAF 1-12)暴露，籽粒OBT显著低于中后期(DAF 13-21)",
+      "穗部HTO→OBT转化效率夜间显著高于白天",
+      "籽粒OBT的70%来自夜间非光合固定",
+      "叶片HTO半衰期白天25-49min，夜间显著延长"
+    ]
+  },
+
+  "C1_Melintescu_Galeriu_2005": {
+    "citation": "Melintescu A, Galeriu D. A versatile model for tritium transfer from atmosphere to plant and soil. Radioprotection 40, S437–S442, 2005.",
+    "type": "model_params",
+
+    "stomatal_resistance": {
+      "unit": "s/m",
+      "wheat_vegetative": {"exp": [41, 52], "theory": 56},
+      "wheat_flowering":  {"exp": [62, 100], "theory": 60},
+      "wheat_general":    {"exp": [17, 20], "theory": 18}
+    },
+
+    "model_vs_experiment": {
+      "dawn":  {"TFWT_exp_pct": [26, 74], "TFWT_model_pct": [21, 40], "TWT_half_exp": [40, 60], "TWT_half_model": [60, 100], "OBT_exp": null, "OBT_model": 0.29},
+      "day":   {"TFWT_exp_pct": [53, 100], "TFWT_model_pct": [35, 50], "TWT_half_exp": [20, 49], "TWT_half_model": [30, 50], "OBT_exp": 0.23, "OBT_model": 0.36},
+      "dusk":  {"TFWT_exp_pct": [20, 26], "TFWT_model_pct": [10, 20], "TWT_half_exp": [230, 600], "TWT_half_model": [200, 300], "OBT_exp": null, "OBT_model": 0.35},
+      "night": {"TFWT_exp_pct": [18, 19], "TFWT_model_pct": [5, 15], "TWT_half_exp": null, "TWT_half_model": [400, 600], "OBT_exp": 0.27, "OBT_model": 0.36}
+    }
+  },
+
+  "C2_Balashov_2011": {
+    "citation": "Balashov et al. Modeling the Build-Up of Organically Bound Tritium in Crops. Fusion Sci. Technol. 60, 1215–1219, 2011.",
+    "type": "model_params",
+
+    "absorption_loss_params": {
+      "day":   {"omega_per_min": 0.024, "k1_per_h": 0.83, "k2_per_d": 0.01},
+      "night": {"omega_per_min": 0.52, "k1_per_h": 0.15, "k2_per_d": null}
+    },
+
+    "logistic_growth": {"N0": 0.13, "delta_N": 7, "lambda_per_d": 0.095}
+  },
+
+  "C3_Melintescu_Galeriu_2017": {
+    "citation": "Melintescu A, Galeriu D. Uncertainty of current understanding regarding OBT formation in plants. J. Environ. Radioact. 167, 134–149, 2017.",
+    "type": "model_params",
+
+    "OBT_grain_equation": "C_OBT_grain = 0.48 × [IC_leaf_day + 0.2×IC_leaf_night + 0.5×(IC_ear_day + 0.2×IC_ear_night)]",
+
+    "PO_ratio_models": {
+      "description": "籽粒 OBT P/O 比（4模型对比）",
+      "data": [
+        {"startH": 7,  "JAEA": "~0.5", "CEA": "~0.3", "IFIN": "~0.4", "KIT": "~1.8"},
+        {"startH": 8,  "JAEA": "~0.7", "CEA": "~0.4", "IFIN": "~0.5", "KIT": "~1.5"},
+        {"startH": 10, "JAEA": "~0.6", "CEA": "~0.3", "IFIN": "~0.4", "KIT": "~1.2"},
+        {"startH": 11, "JAEA": "~0.8", "CEA": "~0.5", "IFIN": "~0.6", "KIT": "~2.0"},
+        {"startH": 14, "JAEA": "~0.4", "CEA": "~0.3", "IFIN": "~0.3", "KIT": "~1.0"},
+        {"startH": 15, "JAEA": "~0.3", "CEA": "~0.2", "IFIN": "~0.2", "KIT": "~0.8"},
+        {"startH": 20, "JAEA": "~0.1", "CEA": "~0.3", "IFIN": "~0.3", "KIT": "~1.5"},
+        {"startH": 23, "JAEA": "~0.01", "CEA": "~0.1", "IFIN": "~0.1", "KIT": "~1.2"}
+      ]
+    }
+  },
+
+  "C4_Shen_Yao_2008": {
+    "citation": "申慧芳, 姚仁太. 氚长期大气释放后小麦中氚浓度预测模型的比较研究. 辐射防护, 2008.",
+    "type": "model_params",
+
+    "wheat_specific_params": {
+      "water_content": 0.13,
+      "dry_matter_fraction": 0.87,
+      "water_equivalent_factor": 0.494,
+      "discrimination_factor": 0.9,
+      "annual_intake_kg": 100,
+      "DCF_HTO_Sv_per_Bq": 1.8e-11,
+      "DCF_OBT_Sv_per_Bq": 4.2e-11
+    },
+
+    "model_predictions_Bq_per_kg_fresh": {
+      "air_1Bq_per_m3": [
+        {"model": "Cp=Cair",       "total": 71.4},
+        {"model": "T=HTO",         "HTO": 44.4, "total": 44.4},
+        {"model": "CSA_N288.1",    "HTO": 35.7, "total": 35.7},
+        {"model": "USNRC_1.109",   "total": 26.8},
+        {"model": "HTO+OBT_split", "HTO": 9.3, "OBT": 35.3, "total": 44.6},
+        {"model": "Cs=0",          "HTO": 6.6, "OBT": 19.8, "total": 26.4},
+        {"model": "Cs=1/3_Cair",   "total": 31.1},
+        {"model": "Cs=Cair",       "HTO": 18.4, "OBT": 141.9, "total": 160.3}
+      ]
+    }
+  },
+
+  "C5_Arora_2003": {
+    "citation": "Arora VK. Simulating energy and carbon fluxes over winter wheat. Agric. For. Meteorol. 118, 21–47, 2003.",
+    "type": "photosynthesis_params",
+    "location": "Ponca City",
+
+    "params": {
+      "Vcmax": {"value": 93, "unit": "μmol CO₂/m²/s"},
+      "kn": {"value": 0.43, "unit": "dimensionless"},
+      "leaf_angle_chi": -0.30,
+      "scatter_coeff": 0.15,
+      "quantum_efficiency": {"value": 0.08, "unit": "mol/mol"},
+      "stomatal_slope_m": 11.0,
+      "stomatal_intercept_b": 0.01,
+      "Leuning_D0": {"value": 1500, "unit": "Pa"},
+      "T_low": {"value": -3, "unit": "°C"},
+      "T_up": {"value": 42, "unit": "°C"},
+      "growth_respiration": 0.35,
+      "stem_CN": 50,
+      "root_CN": 50
+    }
+  },
+
+  "literature_inventory": {
+    "description": "115篇md文献中实际有完整小麦氚定量数据表的文献清单",
+    "total_papers_reviewed": 115,
+    "papers_with_complete_wheat_data": 7,
+    "papers": [
+      {"id": 1, "ref": "Galeriu 2013", "data": "田间1h×14组, TLI, WOFOST, 半衰期", "json_section": "A1_Galeriu_2013"},
+      {"id": 2, "ref": "Diabaté 1997", "data": "温室2h×10组, 器官OBT/TFWT时序", "json_section": "A2_Diabate_1997"},
+      {"id": 3, "ref": "Melintescu 2005", "data": "气孔阻力, 模型vs实测", "json_section": "C1_Melintescu_Galeriu_2005"},
+      {"id": 4, "ref": "Balashov 2011", "data": "吸收/损失速率, 逻辑生长", "json_section": "C2_Balashov_2011"},
+      {"id": 5, "ref": "Melintescu 2017", "data": "OBT方程, P/O比", "json_section": "C3_Melintescu_Galeriu_2017"},
+      {"id": 6, "ref": "Shen 2008", "data": "Fv, Weq, 8模型对比", "json_section": "C4_Shen_Yao_2008"},
+      {"id": 7, "ref": "Arora 2003", "data": "光合/碳通量参数", "json_section": "C5_Arora_2003"}
+    ],
+    "other_categories": {
+      "rice_soybean_only": ["Choi 2002", "Ichimasa 2002/2003", "Atarashi-Andoh 2005", "Kim 2000"],
+      "review_no_original_data": ["Boyer 2009", "Kim 2013", "Diabaté 1993"],
+      "soil_atmosphere_model": ["Wei 2022", "Ota 2011", "Raskob 1993"],
+      "dose_assessment": ["Shen 2008 (also has params)"],
+      "non_wheat_crops": ["Garland 1979 (barley/corn)", "Indeka 1981 (qualitative)"]
+    }
+  }
+}
