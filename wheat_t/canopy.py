@@ -1,4 +1,4 @@
-"""SOLVEG-II  Canopy Module (§3.2–3.8, §3.13)
+"""小麦氚迁移模型 — Canopy Module (§3.2–3.8, §3.13)
 
 Multi-layer canopy with:
   - Farquhar photosynthesis (§3.2)

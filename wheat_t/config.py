@@ -1,4 +1,4 @@
-"""SOLVEG-II Model Configuration
+"""小麦氚迁移模型 — Model Configuration
 
 OBT prediction model for wheat exposed to atmospheric HTO.
 Based on SOLVEG framework (Ota et al.) with extended OBT mechanisms.

@@ -1,4 +1,4 @@
-"""SOLVEG-II  Organ Module (§3.9–3.12, §3.14–3.16)
+"""小麦氚迁移模型 — Organ Module (§3.9–3.12, §3.14–3.16)
 
 Multi-organ carbon + OBT allocation, transport chain, protein turnover,
 ear photosynthesis, maintenance respiration.

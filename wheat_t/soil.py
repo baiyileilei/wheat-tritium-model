@@ -1,4 +1,4 @@
-"""SOLVEG-II Soil HTO Module (§8)
+"""小麦氚迁移模型 — Soil HTO Module (§8)
 
 Van Genuchten soil hydraulic model with multilayer HTO convection-diffusion.
 - 6 layers, 0-80 cm

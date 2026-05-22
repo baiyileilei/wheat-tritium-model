@@ -1,4 +1,4 @@
-"""SOLVEG-II Atmosphere Module — complete diurnal model.
+"""小麦氚迁移模型 — Atmosphere Module — complete diurnal model.
 
 Features:
   - Latitude-based day length (Campbell & Norman 1998)

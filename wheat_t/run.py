@@ -1,11 +1,11 @@
-"""SOLVEG-II  Run Entry Point
+"""小麦氚迁移模型 — Run Entry Point
 
 Usage:
-    python -m solveg_model.run                         # Diabaté default
-    python -m solveg_model.run --scenario chronic      # chronic scenario
-    python -m solveg_model.run --scenario soil_exposure # soil irrigation
-    python -m solveg_model.run --all                   # run all scenarios
-    python -m solveg_model.run --airHTO 50000          # custom param
+    python -m wheat_t.run                         # Diabaté default
+    python -m wheat_t.run --scenario chronic      # chronic scenario
+    python -m wheat_t.run --scenario soil_exposure # soil irrigation
+    python -m wheat_t.run --all                   # run all scenarios
+    python -m wheat_t.run --airHTO 50000          # custom param
 """
 
 import argparse
@@ -130,7 +130,7 @@ def validate_diabate(harvest):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='SOLVEG-II Plant OBT Model')
+    parser = argparse.ArgumentParser(description='小麦 OBT 预测模型')
     parser.add_argument('--scenario', '-s', type=str, default='diabate',
                         help='Scenario name (diabate, diabate_soil, diabate_night, '
                              'soil_exposure, mid_exposure, chronic)')

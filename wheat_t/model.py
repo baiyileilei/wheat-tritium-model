@@ -1,4 +1,4 @@
-"""SOLVEG-II  Main Model Driver (§4)
+"""小麦氚迁移模型 — Main Model Driver (§4)
 
 Orchestrates time-step loop:
   atmosphere → LAI dynamic → canopy → organs → soil → microenvironment → DVS → output.
@@ -26,7 +26,7 @@ from .plant_water import VascularWater, PlantWater
 
 
 class SolvegModel:
-    """SOLVEG-II plant OBT accumulation prediction model."""
+    """小麦 OBT 预测模型."""
 
     def __init__(self, params=None):
         if params is None:
@@ -543,7 +543,7 @@ class SolvegModel:
 
         if progress_every > 0:
             soil_mode = "PE" if self.soil_covered else "open"
-            print(f"SOLVEG-II starting: {self.total_hours}h, dt={dt}s, "
+            print(f"小麦氚迁移模型 starting: {self.total_hours}h, dt={dt}s, "
                   f"{n_steps} steps, DVS₀={self.DVS:.2f}, soil={soil_mode}")
 
         for step_i in range(n_steps):
